@@ -1,0 +1,3 @@
+#file: ./load
+
+/tellraw @a "§a[Explosion Laser]§f Datapack loaded!"

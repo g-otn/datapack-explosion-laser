@@ -1,0 +1,14 @@
+{
+  "name": "datapack-explosion-laser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minecraft's datapack that creates a controllable laser that explode blocks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g-otn/datapack-explosion-laser"
+  },
+  "author": "g-otn (https://github.com/g-otn)",
+  "dependencies": {
+    "mcscript": "^0.2.2"
+  }
+}
