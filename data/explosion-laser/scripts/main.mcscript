@@ -1,0 +1,30 @@
+#file: ./main
+
+// Replaces stick anvil-named "Explosion Laser" with the one used in the datapack
+asat (@a[nbt={SelectedItem:{id:"minecraft:stick",tag:{display:{Name:'{"text":"Explosion Laser"}'}}}}]) {
+    /clear @s minecraft:stick{display:{Name:'{"text":"Explosion Laser"}'}} 1
+    /give @s stick{display:{Name:'{"text":"§b§lExplosion Laser"}'},Enchantments:[{id:infinity,lvl:1}]} 1
+}
+
+// When holding the datapack stick
+asat (@a[nbt={SelectedItem:{id:"minecraft:stick",tag:{display:{Name:'{"text":"§b§lExplosion Laser"}'}}}}]) {
+    // Generates particles
+    /particle minecraft:bubble ^1 ^1.5 ^2 0.01 0.01 0.01 0.00001 1 force
+    /particle minecraft:bubble ^-1 ^1.5 ^2 0.01 0.01 0.01 0.00001 1 force
+    /particle minecraft:bubble ^ ^2.5 ^2 0.01 0.01 0.01 0.00001 1 force
+    /particle minecraft:bubble ^ ^0.5 ^2 0.01 0.01 0.01 0.00001 1 force
+    
+    raycast {
+        /particle campfire_cosy_smoke ~ ~ ~ 5 5 5 1 20 force
+        /summon creeper ~ ~-1 ~ {Fuse:0,ExplosionRadius:10,Silent:1,NoAI:1,ActiveEffects:[{Id:14,Amplifier:0,Duration:999999}]}
+    }, {
+        /particle dragon_breath ^ ^ ^2 0.01 0.01 0.01 0.001 10 force
+    }
+}
+
+// TODO:
+/*
+- Play beacon activate sound once when selected
+- Change to carrot on a stick to detect holding left click
+- Activate beam only when holding left click
+*/
